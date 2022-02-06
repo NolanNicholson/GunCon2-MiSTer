@@ -31,8 +31,8 @@ Optionally, for calibration, you will also need:
    (renaming it to leave it in the same directory is fine), then put
    the `MiSTer` executable in this folder in its place.
 
-2. In the `/linux/` folder of your SD card, back up the `zImage\_dtb` kernel
-   image file (again, renaming it is fine) and add the `zImage\_dtb` file
+2. In the `/linux/` folder of your SD card, back up the `zImage_dtb` kernel
+   image file (again, renaming it is fine) and add the `zImage_dtb` file
    from this folder.
 
 3. Plug in the GunCon 2. The USB connector can be plugged
