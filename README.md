@@ -105,7 +105,8 @@ gives the GunCon 2 some trouble.
 
 - The self-compiled kernel here works fine for the most part, but it may not work properly
   with some devices (for example, Edimax WiFi dongles.) These issues should no longer exist
-  once the next official kernel release incorporates GunCon 2 support.
+  once the next official kernel release incorporates GunCon 2 support. In the meantime, be sure
+  to keep your official kernel image available, so that you can swap back to it if needed.
 
 - If you accidentally severely miscalibrate the gun for a core, the core
   may crash or not start up. If this happens, or if you want to retry
