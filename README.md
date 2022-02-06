@@ -91,7 +91,8 @@ gives the GunCon 2 some trouble.
 
 - Genesis (Menacer, Justifier): **Okay.** You may need to brighten your screen for some games.
 
-- PlayStation (GunCon, Justifier): **Core is still in development and does not yet have lightgun support.**
+- PSX (GunCon, Justifier): **Core is still in development and does not yet have lightgun support.**
+  The PSX core currently has mouse support, but it is not suitable for use with the GunCon 2.
 
 - Saturn (Stunner): **Core is still in development and does not yet have lightgun support.**
 
@@ -121,8 +122,8 @@ gives the GunCon 2 some trouble.
 If you have a Sinden Lightgun and are interested in using it on the MiSTer FPGA, this driver can
 make that possible with the following additional hardware:
 
-- Raspberry Pi (Pi 4 recommended; Pi 3 may also work)
-- Arduino Micro (or other ATMega 32U4-based)
+- Raspberry Pi 4
+- Arduino Micro
 - Open-Source Scan Converter (OSSC)
 
 Follow the instructions at https://sindenlightgun.miraheze.org/wiki/OG_Console_Setup_Guide to set
@@ -132,4 +133,4 @@ to the screen.
 
 Using the Sinden as an emulated GunCon 2 should give excellent performance on all
 lightgun-compatible cores, without any of the tracking issues or brightness dependence of the
-original GunCon 2.
+original GunCon 2, and without the need for a CRT.
