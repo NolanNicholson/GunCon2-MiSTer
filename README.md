@@ -1,16 +1,24 @@
 # GunCon2-MiSTer
 Resources for using the Namco GunCon 2 lightgun with the MiSTer FPGA
 
-NOTE! This set of instructions has you install an experimental
+**NOTE!** This set of instructions has you install an experimental
 Linux kernel and main executable on to your SD card.
 Improper installation may put your installation in an unworkable state,
 so I recommend using a fresh installation instead of your "main" one.
 In any case, use at your own risk!
 
+If you would prefer not to manually
+replace important files on your MiSTer, support for the GunCon 2 will
+eventually be included in the MiSTer's official main executable and Linux
+kernel. The performance of the gun may be more reliable at that time as well.
+
+Thank you for trying this driver, and for your patience while we work out any rough edges.
+
+
 # Setup instructions
 
 You will need:
-- a Namco GunCon 2 (compatibles/clones should work but haven't been tested)
+- a Namco GunCon 2 (compatibles/clones should work)
 - a standard-definition CRT TV
 - a means of tapping your GunCon's RCA cable into your MiSTer's video
   sync signal (see step 4 below)
@@ -19,81 +27,84 @@ Optionally, for calibration, you will also need:
 - an installed copy of the 240p Test Suite for the core you will run
 - a keyboard with a working F10 key
 
-1. If you previously installed an external kernel module for the GunCon 2
-   (in the form of a .ko) file, start up your MiSTer, open the shell,
-   log in, and execute the following command:
+1. At the root of your SD card, back up your `MiSTer` executable
+   (renaming it to leave it in the same directory is fine), then put
+   the `MiSTer` executable in this folder in its place.
 
-   modprobe -r guncon2
-
-   You can then remove the guncon2.ko file from your MiSTer.
-
-2. At the root of your SD card, back up your "MiSTer" executable
-   (renaming it to leave it in the same directory is fine), then put in
-   the MiSTer executable in this folder.
-
-3. In the /linux/ folder of your SD card, back up the "zImage\_dtb" kernel
-   image file (again, renaming it is fine) and add the zImage\_dtb file
+2. In the `/linux/` folder of your SD card, back up the `zImage\_dtb` kernel
+   image file (again, renaming it is fine) and add the `zImage\_dtb` file
    from this folder.
 
-4. Plug in the GunCon 2. The USB connector is normal and can be plugged
+3. Plug in the GunCon 2. The USB connector can be plugged
    into any of your data-capable USB ports (i.e., not the "POWER ONLY"
    one on the USB hub.) The yellow RCA connector needs to be connected
-   to a composite sync signal. If you are using Component, you can tap
+   to a composite sync signal. If you are using component video, you can tap
    into the Luma (green) cable. If you are using RGB, you need to be using
    composite sync, and the gun needs to be tapped into the composite sync
    signal. If you are using RGB with Sync on Green (SOG) enabled, the green
    line should also work.
 
-
-You should now be able to use your GunCon 2 as a controller on the MiSTer!
+You should now be able to use your GunCon 2 as a controller on the MiSTer.
 The ideal calibration settings for the gun will vary for each display, and
 for each core.
 
+
+# Calibration instructions
+
 To calibrate the gun for a particular core, follow these steps:
 
-5. Open a core (e.g., SNES), and load the 240p Test Suite.
+4. Open a core (e.g., SNES), and load the 240p Test Suite.
 
-6. Use the 240p Test Suite's "White and RGB Screen" pattern to display
+5. Use the 240p Test Suite's "White and RGB Screen" pattern to display
    a full white screen.
 
-7. Open the MiSTer OSD and press F10 on a keyboard. A lightgun calibration
+6. Open the MiSTer OSD and press F10 on a keyboard. A lightgun calibration
    menu should appear.
 
-8. Using the menu, aim at the extreme edges of the screen, then press A
-   on the left side of the gun to calibrate that edge. (Note! When the
-   calibration menu says "Trigger", it means "A". For most guns, the
-   "trigger" is A, but the GunCon's side button is literally
-   labelled A, so...)
+7. Using the menu, aim at the extreme edges of the screen, then press A
+   on the left side of the gun to calibrate that edge. (Note: The menu
+   will prompt you to press "Trigger"; press "A" instead.) Your goal is to
+   get the most extreme numbers you can without the gun losing sight of the screen.
 
-   Your goal is to get the most extreme numbers you can without the gun
-   losing sight of the screen.
-
-9. You should now be calibrated. To confirm, try enabling the core's
+8. You should now be calibrated. To confirm, try enabling the core's
    lightgun crosshair (if it has one) and moving around the white screen.
 
 
-# Notes on the GunCon 2, and on this driver/setup
+# GunCon 2 Performance on MiSTer
 
-- As of 2022-02-06, this driver has been modified to improve compatibility
-  with NES Zapper games. The way it does this is a tad hacky, and may
-  affect compatibility with "shoot outside screen to reload"-type games.
-  
+Overall, the GunCon 2 is an accurate and precise lightgun with relatively little jitter.
+It requires a certain level of screen brightness in order to detect the CRT beam; some
+consoles' lightguns were designed for IR tracking or very tight CRT flash timing, which
+gives the GunCon 2 some trouble.
+
+- NES (Zapper): **Good.** As of 2022-02-06, this driver has been modified to improve compatibility
+  with NES Zapper games. There are some issues with hit detection on black screens, such as the
+  Duck Hunt menu, but in-game performance has tested mostly solid. (As of this writing, you
+  will require the updated MiSTer binary here in order to play NES games.)
+
+- Master System (Light Phaser): **Okay.** Works well for brighter games. Darker games, like
+  certain sections of Shooting Gallery, have trouble.
+
+- SNES (Super Scope, Justifier): **Good.** You may need to brighten your screen for some games, but most
+  Super Scope games are already bright enough to work well. All SNES Justifier games have been
+  thoroughly tested, except for Lethal Enforcers.
+
+- Genesis (Menacer, Justifier): **Okay.** You may need to brighten your screen for some games.
+
+- PlayStation (GunCon, Justifier): **Core is still in development and does not yet have lightgun support.**
+
+- Saturn (Stunner): **Core is still in development and does not yet have lightgun support.**
+
+
+# Notes on using the GunCon 2, and on this driver/setup
+
 - Like the Wiimote, this gun can report its coordinates as a mouse (with
   throttling applied) and as a raw joystick. It will work much better as
-  a raw joystick.
+  a raw joystick. Hence, when setting up specific cores, choose the "Joy" options for aiming.
 
-- The PSX core does NOT support light gun games at the time of this
-  writing. Please do not hassle anyone about this!
-
-- This self-compiled kernel works fine for the most part, but it breaks
-  compatibility with my Edimax WiFi dongle. You may experience similar
-  random compatibility issues while using this kernel. These issues
-  should no longer exist once the GunCon 2 driver is part of the
-  official kernel release.
-
-- The way this gun works requires a bright screen. Games with a dark
-  (or red) screen, such as some Sega Genesis games, may function poorly
-  unless you crank up your screen brightness.
+- The self-compiled kernel here works fine for the most part, but it may not work properly
+  with some devices (for example, Edimax WiFi dongles.) These issues should no longer exist
+  once the next official kernel release incorporates GunCon 2 support.
 
 - If you accidentally severely miscalibrate the gun for a core, the core
   may crash or not start up. If this happens, or if you want to retry
@@ -104,11 +115,21 @@ To calibrate the gun for a particular core, follow these steps:
   not yet capable of that, so it functions only with standard-definition
   CRTs. NTSC and PAL should both be fine.
 
-- MiSTer's built-in calibration works by reading the extreme edges of
-  the screen, which may be a bit troublesome depending on your overscan
-  settings. It may be possible to manually correct the gun calibration
-  file, but this hasn't been tried yet.
-  
-- If you have any questions or feedback, feel free to reach out to
-  @Nolbin on the MiSTer discord. Thank you for trying this driver, and
-  for your patience while we work out the rough edges.
+
+# Sinden Lightgun Support
+
+If you have a Sinden Lightgun and are interested in using it on the MiSTer FPGA, this driver can
+make that possible with the following additional hardware:
+
+- Raspberry Pi (Pi 4 recommended; Pi 3 may also work)
+- Arduino Micro (or other ATMega 32U4-based)
+- Open-Source Scan Converter (OSSC)
+
+Follow the instructions at https://sindenlightgun.miraheze.org/wiki/OG_Console_Setup_Guide to set
+your Sinden Lightgun up to emulate a GunCon 2 using the Raspberry Pi and Arduino. Use your MiSTer
+to output over analog or direct video, and use the OSSC to apply a Sinden-compatible white border
+to the screen.
+
+Using the Sinden as an emulated GunCon 2 should give excellent performance on all
+lightgun-compatible cores, without any of the tracking issues or brightness dependence of the
+original GunCon 2.
