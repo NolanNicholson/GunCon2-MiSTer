@@ -135,3 +135,10 @@ to the screen.
 Using the Sinden as an emulated GunCon 2 should give excellent performance on all
 lightgun-compatible cores, without any of the tracking issues or brightness dependence of the
 original GunCon 2, and without the need for a CRT.
+
+
+# Credits
+
+This GunCon 2 driver was originally created by beardypig with the assistance of Rubén Tomás and the RGB-Pi development team. You can find the main version of the driver at https://github.com/beardypig/guncon2 . Many thanks to them for developing an excellent driver, and for making it open-source and publicly available so that as many people as possible can enjoy some good CRT shooting.
+
+Thanks to sonik_br, Freddo, wickerwaka, and alanswx for testing, technical advice, and encouragement.
