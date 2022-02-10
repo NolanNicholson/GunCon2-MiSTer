@@ -91,8 +91,13 @@ gives the GunCon 2 some trouble.
 
 - Genesis (Menacer, Justifier): **Okay.** You may need to brighten your screen for some games.
 
-- PSX (GunCon, Justifier): **Core is still in development and does not yet have lightgun support.**
-  The PSX core currently has mouse support, but it is not suitable for use with the GunCon 2.
+- PSX: Basic GunCon emulation has been implemented, but the horizontal scale is not correct,
+  so you will need a modified gun calibration to compensate. Download the PSX_gun_cal_0b9a_016a.cfg
+  file from this repository and place it in the `/config/` folder of your SD card. Do not calibrate
+  the gun using the F10 menu afterward, or you will overwrite these calibration settings.
+  With this calibration, performance is good overall, though "shoot offscreen to reload" is not yet
+  working correctly, and there are some detection issues when shooting at dark areas of the screen.
+  The Konami Justifier is not supported.
 
 - Saturn (Stunner): **Core is still in development and does not yet have lightgun support.**
 
