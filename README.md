@@ -91,10 +91,9 @@ gives the GunCon 2 some trouble.
 
 - Genesis (Menacer, Justifier): **Okay.** You may need to brighten your screen for some games.
 
-- PSX: Basic GunCon emulation has been implemented, but the horizontal scale is not correct,
-  so you will need a modified gun calibration to compensate. Download the PSX_gun_cal_0b9a_016a.cfg
-  file from this repository and place it in the `/config/` folder of your SD card. Do not calibrate
-  the gun using the F10 menu afterward, or you will overwrite these calibration settings.
+- PSX: Basic GunCon emulation has been implemented, but the horizontal scale is not correct due
+  to resource constraints. The MiSTer executable in this repo contains a patch that corrects any
+  lightgun-type inputs being sent to the PSX.
   With this calibration, performance is good overall, though "shoot offscreen to reload" is not yet
   working correctly, and there are some detection issues when shooting at dark areas of the screen.
   The Konami Justifier is not supported.
