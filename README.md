@@ -108,7 +108,7 @@ gives the GunCon 2 some trouble.
   a raw joystick. Hence, when setting up specific cores, choose the "Joy" options for aiming.
 
 - The self-compiled kernel here works fine for the most part, but it may not work properly
-  with some devices (for example, Edimax WiFi dongles.) These issues should no longer exist
+  with some devices (for example, some WiFi dongles.) These issues should no longer exist
   once the next official kernel release incorporates GunCon 2 support. In the meantime, be sure
   to keep your official kernel image available, so that you can swap back to it if needed.
 
