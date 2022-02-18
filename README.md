@@ -97,6 +97,15 @@ gives the GunCon 2 some trouble.
   With this calibration, performance is good overall, though "shoot offscreen to reload" is not yet
   working correctly, and there are some detection issues when shooting at dark areas of the screen.
   The Konami Justifier is not supported.
+  
+  Note: The GunCon in the PSX core uses the following buttons from the standard gamepad:
+  - Circle: maps to Trigger
+  - Start: maps to A
+  - Cross: maps to B
+  
+  So, map your GunCon 2's trigger to Circle, your A button to Start, and your B button to Cross.
+  (For the other buttons, feel free to either map them as desired or skip them - they will be
+  ignored when the core is emulating the GunCon 1.)
 
 - Saturn (Stunner): **Core is still in development and does not yet have lightgun support.**
 
