@@ -27,9 +27,11 @@ Optionally, for calibration, you will also need:
 - an installed copy of the 240p Test Suite for the core you will run
 - a keyboard with a working F10 key
 
-1. At the root of your SD card, back up your `MiSTer` executable
+1. ~~At the root of your SD card, back up your `MiSTer` executable
    (renaming it to leave it in the same directory is fine), then put
-   the `MiSTer` executable in this folder in its place.
+   the `MiSTer` executable in this folder in its place.~~ For now, simply
+   run the downloader script on your MiSTer to keep its main executable
+   up to date.
 
 2. In the `/linux/` folder of your SD card, back up the `zImage_dtb` kernel
    image file (again, renaming it is fine) and add the `zImage_dtb` file
@@ -77,10 +79,11 @@ It requires a certain level of screen brightness in order to detect the CRT beam
 consoles' lightguns were designed for IR tracking or very tight CRT flash timing, which
 gives the GunCon 2 some trouble.
 
-- NES (Zapper): **Good.** As of 2022-02-06, this driver has been modified to improve compatibility
+- NES (Zapper): ~~**Good.** As of 2022-02-06, this driver has been modified to improve compatibility
   with NES Zapper games. There are some issues with hit detection on black screens, such as the
   Duck Hunt menu, but in-game performance has tested mostly solid. (As of this writing, you
-  will require the updated MiSTer binary here in order to play NES games.)
+  will require the updated MiSTer binary here in order to play NES games.)~~ NES Zapper is currently
+  not working, pending submission of some code to the main MiSTer framework.
 
 - Master System (Light Phaser): **Okay.** Works well for brighter games. Darker games, like
   certain sections of Shooting Gallery, have trouble.
