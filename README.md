@@ -1,19 +1,10 @@
 # GunCon2-MiSTer
 Resources for using the Namco GunCon 2 lightgun with the MiSTer FPGA
 
-**NOTE!** This set of instructions has you install an experimental
-Linux kernel and main executable on to your SD card.
-Improper installation may put your installation in an unworkable state,
-so I recommend using a fresh installation instead of your "main" one.
-In any case, use at your own risk!
-
-If you would prefer not to manually
-replace important files on your MiSTer, support for the GunCon 2 will
-eventually be included in the MiSTer's official main executable and Linux
-kernel. The performance of the gun may be more reliable at that time as well.
-
-Thank you for trying this driver, and for your patience while we work out any rough edges.
-
+The official distributions of MiSTer's linux kernel (zImage_dtb) and main
+executable (MiSTer) now include special handling for CRT lightguns and driver
+support for the GunCon 2 and GunCon 3, so no custom files are needed - you
+just need the latest official distributions and the right hardware.
 
 # Setup instructions
 
@@ -27,17 +18,10 @@ Optionally, for calibration, you will also need:
 - an installed copy of the 240p Test Suite for the core you will run
 - a keyboard with a working F10 key
 
-1. ~~At the root of your SD card, back up your `MiSTer` executable
-   (renaming it to leave it in the same directory is fine), then put
-   the `MiSTer` executable in this folder in its place.~~ For now, simply
-   run the downloader script on your MiSTer to keep its main executable
-   up to date.
+1. Run the downloader script on your MiSTer to keep its main executable
+   and Linux kernel up to date.
 
-2. In the `/linux/` folder of your SD card, back up the `zImage_dtb` kernel
-   image file (again, renaming it is fine) and add the `zImage_dtb` file
-   from this folder.
-
-3. Plug in the GunCon 2. The USB connector can be plugged
+2. Plug in the GunCon 2. The USB connector can be plugged
    into any of your data-capable USB ports (i.e., not the "POWER ONLY"
    one on the USB hub.) The yellow RCA connector needs to be connected
    to a composite sync signal. If you are using component video, you can tap
@@ -67,9 +51,15 @@ To calibrate the gun for a particular core, follow these steps:
    on the left side of the gun to calibrate that edge. (Note: The menu
    will prompt you to press "Trigger"; press "A" instead.) Your goal is to
    get the most extreme numbers you can without the gun losing sight of the screen.
+   When doing this with the GunCon 2, BE CAREFUL not to calibrate the min and max
+   of the same axis to the same value (e.g., both offscreen); if you do, your MiSTer
+   will divide by zero when applying your calibration, and will crash. If this
+   happens, just delete your calibration files from /config.
 
 8. You should now be calibrated. To confirm, try enabling the core's
    lightgun crosshair (if it has one) and moving around the white screen.
+   Note that calibration is per-core, so you'll need to calibrate separately in
+   NES, PSX, the main menu, etc.
 
 
 # GunCon 2 Performance on MiSTer
@@ -97,9 +87,8 @@ gives the GunCon 2 some trouble.
 - PSX: Basic GunCon emulation has been implemented, but the horizontal scale is not correct due
   to resource constraints. The MiSTer executable in this repo contains a patch that corrects any
   lightgun-type inputs being sent to the PSX.
-  With this calibration, performance is good overall, though "shoot offscreen to reload" is not yet
-  working correctly, and there are some detection issues when shooting at dark areas of the screen.
-  The Konami Justifier is not supported.
+  With this calibration, performance is good overall, though there are some detection issues when
+  shooting at dark areas of the screen.
   
   Note: The GunCon in the PSX core uses the following buttons from the standard gamepad:
   - Circle: maps to Trigger
