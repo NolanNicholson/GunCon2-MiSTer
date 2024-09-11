@@ -69,11 +69,8 @@ It requires a certain level of screen brightness in order to detect the CRT beam
 consoles' lightguns were designed for IR tracking or very tight CRT flash timing, which
 gives the GunCon 2 some trouble.
 
-- NES (Zapper): ~~**Good.** As of 2022-02-06, this driver has been modified to improve compatibility
-  with NES Zapper games. There are some issues with hit detection on black screens, such as the
-  Duck Hunt menu, but in-game performance has tested mostly solid. (As of this writing, you
-  will require the updated MiSTer binary here in order to play NES games.)~~ NES Zapper is currently
-  not working, pending submission of some code to the main MiSTer framework.
+- NES (Zapper): **Good.** There are some issues with hit detection on black screens, such as the
+  Duck Hunt menu, but in-game performance has tested mostly solid.
 
 - Master System (Light Phaser): **Okay.** Works well for brighter games. Darker games, like
   certain sections of Shooting Gallery, have trouble.
@@ -84,10 +81,7 @@ gives the GunCon 2 some trouble.
 
 - Genesis (Menacer, Justifier): **Okay.** You may need to brighten your screen for some games.
 
-- PSX: Basic GunCon emulation has been implemented, but the horizontal scale is not correct due
-  to resource constraints. The MiSTer executable in this repo contains a patch that corrects any
-  lightgun-type inputs being sent to the PSX.
-  With this calibration, performance is good overall, though there are some detection issues when
+- PSX: Performance is good overall, though there are some detection issues when
   shooting at dark areas of the screen.
   
   Note: The GunCon in the PSX core uses the following buttons from the standard gamepad:
@@ -101,7 +95,7 @@ gives the GunCon 2 some trouble.
 
 - Saturn (Stunner): **Core is still in development and does not yet have lightgun support.**
 
-
+  
 # Notes on using the GunCon 2, and on this driver/setup
 
 - Like the Wiimote, this gun can report its coordinates as a mouse (with
